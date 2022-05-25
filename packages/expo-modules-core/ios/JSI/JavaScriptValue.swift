@@ -13,6 +13,7 @@ public enum JavaScriptValueKind: String {
   case string
   case function
   case object
+  case typedArray
 }
 
 public extension JavaScriptValue {
@@ -32,6 +33,8 @@ public extension JavaScriptValue {
       return .string
     case isFunction():
       return .function
+    case isTypedArray():
+      return .typedArray
     default:
       return .object
     }

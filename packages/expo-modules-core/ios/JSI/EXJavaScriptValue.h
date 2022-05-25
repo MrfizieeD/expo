@@ -36,6 +36,7 @@ NS_SWIFT_NAME(JavaScriptValue)
 - (BOOL)isSymbol;
 - (BOOL)isObject;
 - (BOOL)isFunction;
+- (BOOL)isTypedArray;
 
 + (nonnull NSString *)kindOf:(nonnull EXJavaScriptValue *)value;
 

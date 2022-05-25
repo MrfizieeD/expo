@@ -3,6 +3,7 @@
 #import <ExpoModulesCore/EXJSIConversions.h>
 #import <ExpoModulesCore/EXJavaScriptValue.h>
 #import <ExpoModulesCore/EXJavaScriptRuntime.h>
+#import "TypedArray.h"
 
 @implementation EXJavaScriptValue {
   __weak EXJavaScriptRuntime *_runtime;
@@ -66,6 +67,15 @@
   if (_value->isObject()) {
     jsi::Runtime *runtime = [_runtime get];
     return _value->getObject(*runtime).isFunction(*runtime);
+  }
+  return false;
+}
+
+- (BOOL)isTypedArray
+{
+  if (_value->isObject()) {
+    jsi::Runtime *runtime = [_runtime get];
+    return expo::isTypedArray(*runtime, _value->getObject(*runtime));
   }
   return false;
 }
